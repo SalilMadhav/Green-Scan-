@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet Our Team</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+      color: #0ff;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .member {
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #0ff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+      max-width: 260px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #fff;
+    }
+
+    .member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #0ff, 0 0 30px #0ff inset;
+    }
+
+    .member img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #0ff;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    .member h3 {
+      margin: 10px 0 5px;
+      font-size: 1.5rem;
+      color: #0ff;
+      text-shadow: 0 0 5px #0ff;
+    }
+
+    .member p.role {
+      color: #8ff;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .member p.bio {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 600px) {
+      .team-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Meet Our Team</h1>
+
+  <div class="team-container">
+    <div class="member">
+      <img src="C:\Users\kelka\Downloads\IMG_1903.jpeg" alt="Member 1">
+      <h3>Yatharth Kelkar</h3>
+      <p class="role">Programmer and Motor Controller</p>
+      <p class="bio">Expert in Arduino, Python, and Web Development. Leads the AI-based agriculture automation system. Website creator and responsible for EV3 working.</p>
+    </div>
+
+    <div class="member">
+      <img src="C:\Users\kelka\Downloads\IMG_1924.jpeg" alt="Member 2">
+      <h3>Vinyas Mumaneni</h3>
+      <p class="role">Hardware Engineer</p>
+      <p class="bio">Designed and built the Arduino Rover with soil and GPS modules. Responsible for integration and testing.</p>
+    </div>
+
+    <div class="member">
+      <img src="C:\Users\kelka\Downloads\IMG_1927.jpeg" alt="Member 3">
+      <h3>Vishruth Kumar</h3>
+      <p class="role">Irrigation & Sensor Placement</p>
+      <p class="bio">Created a modern irrigation system using Arduino and strategically placed sensors for optimal automation.</p>
+    </div>
+
+    <div class="member">
+      <img src="C:\Users\kelka\Downloads\IMG_1911.jpeg" alt="Member 4">
+      <h3>Sidharth Hegde</h3>
+      <p class="role">Hardware Engineer</p>
+      <p class="bio">Designed and built the Arduino Rover with soil and GPS modules. Responsible for integration and testing.</p>
+    </div>
+  </div>
+
+</body>
+</html>

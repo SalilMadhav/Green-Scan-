@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SmartAgro Login</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0ff;
+      text-align: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 150px;
+    }
+
+    .login {
+      font-weight: bold;
+      font-size: 3.5rem;
+      margin-bottom: 30px;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+    }
+
+    .input-box {
+      color: #8ff;
+      font-size: 20px;
+      margin: 12px 0;
+    }
+
+    .input-box input {
+      padding: 12px;
+      font-size: 20px;
+      border-radius: 12px;
+      border: none;
+      width: 250px;
+      text-align: center;
+      background: #111;
+      color: #0ff;
+      box-shadow: 0 0 10px #0ff;
+      outline: none;
+    }
+
+    .input-box input::placeholder {
+      color: #44f;
+    }
+
+    .button {
+      background-color: #000;
+      color: #0ff;
+      border: 2px solid #0ff;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      padding: 12px 40px;
+      cursor: pointer;
+      margin-top: 25px;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      background-color: #111;
+      box-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+    }
+
+    .toggle-link {
+      color: #0ff;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: underline;
+      text-shadow: 0 0 8px #0ff;
+    }
+
+    .rm {
+      padding: 10px;
+      font-size: 13px;
+      margin-top: 10px;
+      color: #8ff;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    input[type="checkbox"] {
+      accent-color: #0ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="login" id="formTitle">Login</div>
+
+    <div class="input-box">
+      <input type="text" id="username" placeholder="Username">
+    </div>
+
+    <div class="input-box">
+      <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <div class="input-box hidden" id="confirmPasswordBox">
+      <input type="password" id="confirmPassword" placeholder="Confirm Password">
+    </div>
+
+    <button class="button" onclick="handleForm()">Submit</button>
+
+    <div class="rm">
+      Remember Me <input type="checkbox">
+    </div>
+
+    <div class="toggle-link" onclick="toggleMode()" id="toggleText">
+      Don't have an account? Sign Up
+    </div>
+  </div>
+
+  <script>
+    let isSignUp = false;
+
+    function toggleMode() {
+      isSignUp = !isSignUp;
+
+      document.getElementById("formTitle").textContent = isSignUp ? "Sign Up" : "Login";
+      document.getElementById("toggleText").textContent = isSignUp
+        ? "Already have an account? Login"
+        : "Don't have an account? Sign Up";
+
+      document.getElementById("confirmPasswordBox").classList.toggle("hidden");
+    }
+
+    function handleForm() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirmPassword")?.value.trim();
+
+      if (!username || !password || (isSignUp && !confirmPassword)) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      if (isSignUp) {
+        if (password !== confirmPassword) {
+          alert("Passwords do not match.");
+          return;
+        }
+
+        localStorage.setItem(username, password);
+        alert("Sign Up successful. Please log in.");
+        toggleMode();
+      } else {
+        const storedPassword = localStorage.getItem(username);
+        if (storedPassword === password) {
+          window.location.href = "index1.html";
+        } else {
+          alert("Invalid username or password.");
+        }
+      }
+    }
+  </script>
+</body>
+</html>

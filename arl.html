@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mind-Blowing Arduino Resource Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+            text-align: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #00ffe7;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ffe7;
+        }
+
+        .link {
+            display: block;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid #00ffe7;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #00ffe7;
+        }
+
+        .link:hover {
+            background: #00ffe7;
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #00ffe7;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💡 Arduino Resources Hub 💡</h1>
+        <a href="https://projecthub.arduino.cc/" class="link" target="_blank">🚀 Arduino Project Hub</a>
+        <a href="https://wiki.dfrobot.com/pH_meter" class="link" target="_blank">🔬 DFRobot pH Meter Wiki</a>
+        <a href="https://lastminuteengineers.com/soil-moisture-sensor-arduino-tutorial/" class="link" target="_blank">🌱 Soil Moisture Sensor Guide</a>
+        <a href="contact.py" class="link" target="_blank">🚀🔬🌱 Contact Information</a>
+    </div>
+</body>
+</html>

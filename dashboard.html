@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Agro Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* NEON ANIMATED BACKGROUND */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: neonBackground 20s ease infinite;
+      color: #ffffff;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    @keyframes neonBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: rgba(0, 0, 0, 0.8);
+      color: #00fff7;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+      box-shadow: 0 0 15px #00fff7;
+    }
+
+    .navbar .logo {
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+
+    /* DASHBOARD GRID */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* CARDS */
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid #00fff7;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00fff7;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #fff;
+      text-shadow: 0 0 5px #00fff7;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px #00fff7;
+    }
+
+    .card h2 {
+      color: #00fff7;
+      text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.8);
+      color: #00fff7;
+      text-shadow: 0 0 5px #00fff7;
+      box-shadow: 0 0 10px #00fff7 inset;
+    }
+
+    /* TOGGLE DARK MODE STYLE (optional override) */
+    .dark-mode {
+      background: #000 !important;
+      color: #00fff7;
+    }
+
+    .dark-mode .card,
+    .dark-mode .navbar,
+    .dark-mode .footer {
+      background: rgba(0, 0, 0, 0.7);
+      border-color: #00fff7;
+      color: #00fff7;
+    }
+
+    /* BUTTON */
+    button {
+      background-color: transparent;
+      color: #00fff7;
+      border: 2px solid #00fff7;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      text-shadow: 0 0 5px #00fff7;
+    }
+
+    button:hover {
+      background-color: #00fff7;
+      color: #000;
+      box-shadow: 0 0 20px #00fff7, 0 0 40px #00fff7;
+    }
+
+    /* CENTER PARAGRAPH */
+    .pap {
+      text-align: center;
+      margin: 10px 0;
+      color: #00fff7;
+      text-shadow: 0 0 5px #00fff7;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🌿 SmartAgro Rover</div>
+    <button id="toggleTheme">Toggle Theme</button>
+  </header>
+
+  <main class="dashboard">
+    <section class="card status-card">
+      <h2>🌾 Rover Status</h2>
+      <p>Status: <strong>Online</strong></p>
+      <p>Battery: <strong>85%</strong></p>
+      <p>Location: <span id="gpsLocation">Fetching...</span></p>
+    </section>
+
+    <section class="card sensor-card">
+      <h2>📊 Live Sensor Data</h2>
+      <canvas id="phChart" width="300" height="200"></canvas>
+      <canvas id="moistureChart" width="300" height="200"></canvas>
+    </section>
+
+    <section class="card advice-card">
+      <h2>🌿 Soil Health Advisor</h2>
+      <p>Ideal Crop: <strong>Wheat</strong></p>
+      <p>Recommendation: Maintain moisture between 45–60%.</p>
+    </section>
+
+    <section class="card task-card">
+      <h2>🛠 Automated Tasks</h2>
+      <ul>
+        <li>✅ Seed Dispersal</li>
+        <li>⏳ Watering (Scheduled)</li>
+        <li>✅ Fertilizer Dispersion</li>
+      </ul>
+    </section>
+  </main>
+
+  <p class="pap">For recording previous activities of the rover please sign in.</p>
+  <footer class="footer">© 2025 SmartAgro AI Rover. All rights reserved.</footer>
+
+  <script>
+    // GPS simulation
+    document.getElementById("gpsLocation").innerText = "Lat: 18.5204, Lon: 73.8567";
+
+    // pH Chart
+    const phChart = new Chart(document.getElementById('phChart'), {
+      type: 'line',
+      data: {
+        labels: ['T1', 'T2', 'T3', 'T4', 'Now'],
+        datasets: [{
+          label: 'pH Level',
+          data: [6.5, 6.7, 6.8, 7.0, 6.9],
+          borderColor: '#36a2eb',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // Moisture Chart
+    const moistureChart = new Chart(document.getElementById('moistureChart'), {
+      type: 'line',
+      data: {
+        labels: ['T1', 'T2', 'T3', 'T4', 'Now'],
+        datasets: [{
+          label: 'Moisture %',
+          data: [40, 45, 48, 50, 52],
+          borderColor: '#4caf50',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // Dark mode toggle
+    document.getElementById('toggleTheme').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-attachment: fixed;
+  background-size: 400% 400%;
+  animation: neonBackground 20s ease infinite;
+  color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@keyframes neonBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Neon glow on hero background */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.15), rgba(255, 0, 255, 0.1));
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  color: white;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.navbar .logo {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: background 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 0 5px #00fff7;
+}
+
+.navbar nav ul li a:hover {
+  background-color: rgba(0, 255, 255, 0.1);
+  border-radius: 5px;
+  text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+}
+
+.navbar nav ul li button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  text-shadow: 0 0 8px #00fff7;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  color: white;
+  text-align: center;
+  z-index: 2;
+  padding: 2em;
+  width: 100%;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  font-weight: 700;
+  text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7, 0 0 30px #00fff7;
+}
+
+.hero-content p {
+  font-size: 1.5em;
+  margin: 20px 0;
+  text-shadow: 0 0 10px #00fff7;
+}
+
+.cta-button {
+  background-color: transparent;
+  border: 2px solid #00fff7;
+  color: #00fff7;
+  padding: 15px 25px;
+  font-size: 1.2em;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px #00fff7;
+}
+
+.cta-button:hover {
+  background-color: #00fff7;
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #00fff7;
+}
+
+/* Features Section */
+.features {
+  padding: 4em 2em;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  color: #00fff7;
+}
+
+.features h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7em;
+  padding: 1em 0;
+}
+
+
+.feature-card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 0 0 8px #00fff7;
+  color: #00fff7;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+}
+
+/* Footer */
+footer {
+  padding: 1.5em;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #00fff7;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  text-shadow: 0 0 8px #00fff7;
+}
+
+/* 🌙 Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode header,
+body.dark-mode nav,
+body.dark-mode section,
+body.dark-mode main,
+body.dark-mode footer,
+body.dark-mode aside {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #222;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+body.dark-mode button {
+  background-color: #333;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode li,
+body.dark-mode a,
+body.dark-mode label,
+body.dark-mode strong,
+body.dark-mode em,
+body.dark-mode td,
+body.dark-mode th,
+body.dark-mode caption,
+body.dark-mode pre,
+body.dark-mode code,
+body.dark-mode blockquote,
+body.dark-mode div {
+  color: #f0f0f0 !important;
+}

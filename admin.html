@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Neon Login</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #ff6ec7;
+            text-align: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 150px;
+        }
+
+        .login {
+            font-weight: bold;
+            font-size: 50px;
+            margin-bottom: 30px;
+            color: #ff6ec7;
+            text-shadow: 0 0 10px #ff6ec7, 0 0 20px #ff6ec7, 0 0 40px #ff6ec7;
+        }
+
+        .input-box {
+            font-size: 20px;
+            margin: 12px 0;
+            color: #fff;
+        }
+
+        .input-box input {
+            padding: 12px;
+            font-size: 20px;
+            border-radius: 12px;
+            border: none;
+            width: 250px;
+            text-align: center;
+            background: #111;
+            color: #ff6ec7;
+            box-shadow: 0 0 10px #ff6ec7;
+            outline: none;
+        }
+
+        .input-box input::placeholder {
+            color: #aa66aa;
+        }
+
+        .button {
+            background-color: #111;
+            color: #ff6ec7;
+            border: 2px solid #ff6ec7;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            padding: 12px 40px;
+            cursor: pointer;
+            margin-top: 40px;
+            box-shadow: 0 0 10px #ff6ec7, 0 0 25px #ff6ec7 inset;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #220022;
+            box-shadow: 0 0 20px #ff6ec7, 0 0 40px #ff6ec7;
+        }
+
+        .rm {
+            padding: 10px;
+            font-size: 14px;
+            margin-top: 15px;
+            color: #ffd4fb;
+            text-shadow: 0 0 5px #ff6ec7;
+        }
+
+        input[type="checkbox"] {
+            accent-color: #ff6ec7;
+        }
+
+        .text {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login">Login</div>
+        <div class="input-box">
+            <input type="text" id="username" placeholder="Username">
+        </div>
+        <div class="input-box">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+        <button class="button" onclick="authenticate()">Submit</button>
+        <div class="rm">
+            Remember Me <input type="checkbox">
+        </div>
+    </div>
+
+    <script>
+        function authenticate() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var correctPassword = "secret";
+            var correctUsername = "admin123";
+
+            if (username === correctUsername && password === correctPassword) {
+                window.location.href = "https://drive.google.com/drive/folders/1vEypVz9fotyVHnRq8ja4-0Km_u1sf7zq?usp=drive_link";
+            } else {
+                alert("Incorrect username or password. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
